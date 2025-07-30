@@ -1,3 +1,0 @@
----
-aboutText: b﻿obbby
----
