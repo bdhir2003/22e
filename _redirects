@@ -1,0 +1,17 @@
+# Netlify CMS redirects - DIRECT TO REAL CMS
+/admin              /admin/index.html   200
+/admin/             /admin/index.html   200  
+/admin/*            /admin/index.html   200
+
+# Enable Git Gateway for Netlify CMS
+/.netlify/git/*     /admin/index.html   200
+/admin-login.html   /admin/index.html   301
+
+# Admin panel direct access
+/admin-panel  /admin.html  200
+
+# Catch all admin routes
+/admin/*  /admin.html  200
+
+# Error handling
+/*  /index.html  404

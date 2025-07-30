@@ -1,0 +1,137 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "portfolio"
+    label: "Portfolio"
+    files:
+      - label: "Personal Information"
+        name: "personal"
+        file: "content/personal.md"
+        fields:
+          - {label: "Full Name", name: "fullName", widget: "string"}
+          - {label: "Professional Title", name: "title", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Profile Image", name: "profileImage", widget: "image", required: false}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string", required: false}
+          - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+          - {label: "GitHub", name: "github", widget: "string", required: false}
+          - {label: "Twitter", name: "twitter", widget: "string", required: false}
+          - {label: "Website", name: "website", widget: "string", required: false}
+
+      - label: "Hero Section"
+        name: "hero"
+        file: "content/hero.md"
+        fields:
+          - {label: "Display Name", name: "heroName", widget: "string"}
+          - {label: "Professional Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Tagline", name: "heroTagline", widget: "string"}
+          - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text", required: false}
+          - {label: "Button Text", name: "heroButtonText", widget: "string"}
+          - {label: "Button Link", name: "heroButtonUrl", widget: "select", options: ["#about", "#projects", "#skills", "#contact", "#education"]}
+
+      - label: "About Section"
+        name: "about"
+        file: "content/about.md"
+        fields:
+          - {label: "About Me", name: "aboutText", widget: "markdown"}
+
+      - label: "Site Settings"
+        name: "settings"
+        file: "content/settings.md"
+        fields:
+          - {label: "Site Title", name: "siteTitle", widget: "string"}
+          - {label: "Color Scheme", name: "colorScheme", widget: "select", options: ["blue", "green", "purple", "orange"]}
+          - {label: "Meta Description", name: "metaDescription", widget: "text"}
+
+  - name: "education"
+    label: "Education"
+    folder: "content/education"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Degree/Certification", name: "degree", widget: "string"}
+      - {label: "Institution", name: "institution", widget: "string"}
+      - {label: "Start Date", name: "startDate", widget: "date"}
+      - {label: "End Date", name: "endDate", widget: "date", required: false}
+      - {label: "Description", name: "description", widget: "markdown", required: false}
+
+  - name: "skills"
+    label: "Skills"
+    folder: "content/skills"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Skill Name", name: "name", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Programming Languages", "Web Technologies", "Frameworks & Libraries", "Database", "Tools & Software", "Cloud & DevOps", "Design", "Soft Skills", "Other"], required: false}
+      - {label: "Proficiency Level", name: "proficiency", widget: "select", options: ["Beginner", "Intermediate", "Advanced", "Expert"], required: false}
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Project Name", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Technologies", name: "technologies", widget: "list"}
+      - {label: "Project URL", name: "url", widget: "string", required: false}
+      - {label: "GitHub URL", name: "github", widget: "string", required: false}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
+
+  - name: "publications"
+    label: "Publications"
+    folder: "content/publications"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Journal/Conference", name: "journal", widget: "string"}
+      - {label: "Publication Date", name: "date", widget: "date"}
+      - {label: "Authors", name: "authors", widget: "string"}
+      - {label: "Abstract", name: "abstract", widget: "markdown"}
+      - {label: "Publication URL", name: "url", widget: "string", required: false}
+      - {label: "DOI", name: "doi", widget: "string", required: false}
+
+  - name: "podcasts"
+    label: "Podcasts"
+    folder: "content/podcasts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Episode Title", name: "title", widget: "string"}
+      - {label: "Podcast Show", name: "show", widget: "string"}
+      - {label: "Air Date", name: "date", widget: "date"}
+      - {label: "Host(s)", name: "host", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Episode URL", name: "url", widget: "string", required: false}
+      - {label: "Platform", name: "platform", widget: "select", options: ["Spotify", "Apple Podcasts", "Google Podcasts", "YouTube", "Other"], required: false}
+
+  - name: "videos"
+    label: "Videos"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Video Title", name: "title", widget: "string"}
+      - {label: "Video URL", name: "url", widget: "string"}
+      - {label: "Description", name: "description", widget: "markdown", required: false}
+
+  - name: "awards"
+    label: "Awards"
+    folder: "content/awards"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Award Title", name: "title", widget: "string"}
+      - {label: "Organization", name: "organization", widget: "string"}
+      - {label: "Date Received", name: "date", widget: "date"}
+      - {label: "Category", name: "category", widget: "select", options: ["Academic", "Research", "Leadership", "Community Service", "Technical", "Sports", "Arts", "MCH", "Other"]}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Icon", name: "icon", widget: "string", required: false}
+      - {label: "Certificate URL", name: "url", widget: "string", required: false}
