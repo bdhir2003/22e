@@ -1,0 +1,27 @@
+{
+    "education": [
+        "bachelor-degree.md",
+        "test-education.md",
+        "masters-degree.md"
+    ],
+    "skills": [
+        "javascript.md",
+        "react.md",
+        "nodejs.md",
+        "python.md",
+        "html5.md",
+        "test-skills.md"
+    ],
+    "projects": [
+        "portfolio-website.md",
+        "ecommerce-platform.md"
+    ],
+    "publications": [
+        "ml-web-dev.md"
+    ],
+    "podcasts": [],
+    "videos": [],
+    "awards": [
+        "innovation-award.md"
+    ]
+}

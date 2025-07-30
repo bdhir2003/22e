@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Format Parser Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .result { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 3px; }
+        pre { background: #eee; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Multi-Format Parser Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: Tabular Format (Your Netlify CMS Data)</h2>
+        <h3>Input:</h3>
+        <pre id="input1"></pre>
+        <h3>Parsed Result:</h3>
+        <div class="result" id="result1"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Real Education Data</h2>
+        <h3>Input:</h3>
+        <pre id="input2"></pre>
+        <h3>Parsed Result:</h3>
+        <div class="result" id="result2"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Skills Data</h2>
+        <h3>Input:</h3>
+        <pre id="input3"></pre>
+        <h3>Parsed Result:</h3>
+        <div class="result" id="result3"></div>
+    </div>
+
+    <script src="multi-format-parser.js"></script>
+    <script>
+        // Test data
+        const testData1 = `project-degree	institution	startDate	endDate	description
+dvdvdvssdv	dsvdvds	2025-07-30 08:11:03 UTC	2025-07-30 08:11:03 UTC	v﻿sdvdvdsvds`;
+
+        const testData2 = `project-degree	institution	startDate	endDate	description
+Master of Science in Computer Science	Stanford University	2020-08-30 00:00:00 UTC	2022-06-15 00:00:00 UTC	Advanced study in machine learning, artificial intelligence, and distributed systems. Completed thesis on neural network optimization.`;
+
+        const testData3 = `skill-name	category	proficiency	years	description
+JavaScript	Programming	Expert	8	Full-stack development with modern frameworks and libraries including React, Node.js, and TypeScript.`;
+
+        function runTests() {
+            console.log('🧪 Running parser tests...');
+            
+            // Test 1
+            document.getElementById('input1').textContent = testData1;
+            const result1 = window.MultiFormatContentParser.parseContent(testData1);
+            document.getElementById('result1').innerHTML = `<pre>${JSON.stringify(result1, null, 2)}</pre>`;
+            console.log('Test 1 result:', result1);
+            
+            // Test 2
+            document.getElementById('input2').textContent = testData2;
+            const result2 = window.MultiFormatContentParser.parseContent(testData2);
+            document.getElementById('result2').innerHTML = `<pre>${JSON.stringify(result2, null, 2)}</pre>`;
+            console.log('Test 2 result:', result2);
+            
+            // Test 3
+            document.getElementById('input3').textContent = testData3;
+            const result3 = window.MultiFormatContentParser.parseContent(testData3);
+            document.getElementById('result3').innerHTML = `<pre>${JSON.stringify(result3, null, 2)}</pre>`;
+            console.log('Test 3 result:', result3);
+            
+            console.log('✅ All tests completed');
+        }
+        
+        // Run tests when page loads
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
